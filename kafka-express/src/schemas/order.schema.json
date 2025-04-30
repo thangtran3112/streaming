@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "Order",
+  "namespace": "com.ecommerce",
+  "fields": [
+    { "name": "id", "type": "string" },
+    { "name": "customerId", "type": "string" },
+    { "name": "orderDate", "type": "string" },
+    {
+      "name": "items",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "OrderItem",
+          "fields": [
+            { "name": "productId", "type": "string" },
+            { "name": "name", "type": "string" },
+            { "name": "quantity", "type": "int" },
+            { "name": "price", "type": "double" }
+          ]
+        }
+      }
+    },
+    { "name": "totalAmount", "type": "double" },
+    { "name": "status", "type": "string", "default": "PENDING" }
+  ]
+}
